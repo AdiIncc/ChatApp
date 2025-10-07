@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF11B42C2E94350B00DCF83F /* Extention+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF11B42B2E94350B00DCF83F /* Extention+UIViewController.swift */; };
 		CF4B295B2E93033800AC90FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF4B295A2E93033800AC90FB /* GoogleService-Info.plist */; };
 		CF4B295E2E93046200AC90FB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CF4B295D2E93046200AC90FB /* FirebaseAuth */; };
 		CF4B29602E93046200AC90FB /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = CF4B295F2E93046200AC90FB /* FirebaseDatabase */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF11B42B2E94350B00DCF83F /* Extention+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIViewController.swift"; sourceTree = "<group>"; };
 		CF4B295A2E93033800AC90FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E12D57D62A6B3FD600D556EF /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		E12D58052A6CAE8F00D556EF /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF11B42A2E9434EF00DCF83F /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				CF11B42B2E94350B00DCF83F /* Extention+UIViewController.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		E130899B2A69EDB600C1889D = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +90,7 @@
 		E13089A62A69EDB600C1889D /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				CF11B42A2E9434EF00DCF83F /* Extentions */,
 				E13089CB2A69FFEF00C1889D /* Design */,
 				E13089C02A69F00D00C1889D /* Storyboards */,
 				E13089BE2A69EEC500C1889D /* ViewControllers */,
@@ -204,6 +215,7 @@
 				E13089C42A69F24800C1889D /* Font.swift in Sources */,
 				E13089A82A69EDB600C1889D /* AppDelegate.swift in Sources */,
 				E13089C62A69FBF400C1889D /* SignInViewController.swift in Sources */,
+				CF11B42C2E94350B00DCF83F /* Extention+UIViewController.swift in Sources */,
 				E12D57D72A6B3FD600D556EF /* PrimaryButton.swift in Sources */,
 				E13089CA2A69FCD300C1889D /* HomeViewController.swift in Sources */,
 				E13089AA2A69EDB600C1889D /* SceneDelegate.swift in Sources */,
