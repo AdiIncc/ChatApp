@@ -89,37 +89,46 @@ class CreateAccountViewController: UIViewController {
             presentErrorAlert(title: "Password Required", message: "Please enter a password to continue.")
             return
         }
-              guard let email = emailTextField.text else {
-                  presentErrorAlert(title: "Email Required", message: "Please enter an email to continue.")
+        guard let email = emailTextField.text else {
+            presentErrorAlert(title: "Email Required", message: "Please enter an email to continue.")
             return
         }
         
-        Auth.auth().createUser(withEmail: email, password: passwork) { result, error in
-            if let error = error {
-                print(error.localizedDescription)
-                self.presentErrorAlert(title: "Create Account Failed", message: "Something went wrong. Please try again later.")
+        Database.database().reference().child("usernames").child(username).observeSingleEvent(of: .value) { snapshot in
+            guard !snapshot.exists() else {
+                self.presentErrorAlert(title: "Username in use.", message: "Please try a different username.")
                 return
             }
-            guard let result = result else {
-                self.presentErrorAlert(title: "Create Account Failed", message: "Something went wrong. Please try again later.")
-                return
+            Auth.auth().createUser(withEmail: email, password: passwork) { result, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    self.presentErrorAlert(title: "Create Account Failed", message: "Something went wrong. Please try again later.")
+                    return
+                }
+                guard let result = result else {
+                    self.presentErrorAlert(title: "Create Account Failed", message: "Something went wrong. Please try again later.")
+                    return
+                }
+                let userId = result.user.uid
+                let userData: [String: Any] = [
+                    "id" : userId,
+                    "username": username
+                ]
+                Database.database().reference().child("users").child(userId).setValue(userData)
+                Database.database().reference().child("usernames").child(username).setValue(userData)
+                
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
+                let navVC = UINavigationController(rootViewController: homeVC)
+                let window = UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? [] }.first { $0.isKeyWindow }
+                window?.rootViewController = navVC
             }
-            let userId = result.user.uid
-            let userData: [String: Any] = [
-                "id" : userId,
-                "username": username
-            ]
-            Database.database().reference().child("users").child(userId).setValue(userData)
-            
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
-            let navVC = UINavigationController(rootViewController: homeVC)
-            let window = UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? [] }.first { $0.isKeyWindow }
-            window?.rootViewController = navVC
         }
+        
+        
     }
     
-
+    
 }
 
 extension CreateAccountViewController: UITextViewDelegate {
