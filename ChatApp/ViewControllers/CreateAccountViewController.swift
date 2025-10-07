@@ -101,6 +101,7 @@ class CreateAccountViewController: UIViewController {
                 self.removeLoadingView()
                 return
             }
+            
             Auth.auth().createUser(withEmail: email, password: passwork) { result, error in
                 self.removeLoadingView()
                 if let error = error {
@@ -132,6 +133,10 @@ class CreateAccountViewController: UIViewController {
                 ]
                 Database.database().reference().child("users").child(userId).setValue(userData)
                 Database.database().reference().child("usernames").child(username).setValue(userData)
+                
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = username
+                changeRequest?.commitChanges()
                 
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
