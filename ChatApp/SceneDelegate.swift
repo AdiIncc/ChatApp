@@ -28,9 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let signinVC = authStoryboard.instantiateViewController(withIdentifier: "SignInViewController")
             self.window?.rootViewController = signinVC
         }
-        
-       
-        
         self.window?.makeKeyAndVisible()
     }
 
