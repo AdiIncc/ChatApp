@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF11B42C2E94350B00DCF83F /* Extention+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF11B42B2E94350B00DCF83F /* Extention+UIViewController.swift */; };
+		CF4A24912E9682E900ED9C55 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4A24902E9682E900ED9C55 /* ProfileViewController.swift */; };
 		CF4B295B2E93033800AC90FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF4B295A2E93033800AC90FB /* GoogleService-Info.plist */; };
 		CF4B295E2E93046200AC90FB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CF4B295D2E93046200AC90FB /* FirebaseAuth */; };
 		CF4B29602E93046200AC90FB /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = CF4B295F2E93046200AC90FB /* FirebaseDatabase */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		CF11B42B2E94350B00DCF83F /* Extention+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIViewController.swift"; sourceTree = "<group>"; };
+		CF4A24902E9682E900ED9C55 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CF4B295A2E93033800AC90FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CF5C7A7E2E9533270083ED62 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		CF5C7A802E9533550083ED62 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				E13089C52A69FBF400C1889D /* SignInViewController.swift */,
 				E13089C72A69FC1700C1889D /* CreateAccountViewController.swift */,
 				E13089C92A69FCD300C1889D /* HomeViewController.swift */,
+				CF4A24902E9682E900ED9C55 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				CF5C7A812E9533550083ED62 /* LoadingView.swift in Sources */,
 				E13089C62A69FBF400C1889D /* SignInViewController.swift in Sources */,
 				CF11B42C2E94350B00DCF83F /* Extention+UIViewController.swift in Sources */,
+				CF4A24912E9682E900ED9C55 /* ProfileViewController.swift in Sources */,
 				E12D57D72A6B3FD600D556EF /* PrimaryButton.swift in Sources */,
 				E13089CA2A69FCD300C1889D /* HomeViewController.swift in Sources */,
 				E13089AA2A69EDB600C1889D /* SceneDelegate.swift in Sources */,
