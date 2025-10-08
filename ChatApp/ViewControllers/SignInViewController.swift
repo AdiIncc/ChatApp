@@ -1,6 +1,7 @@
 
 
 import UIKit
+import FirebaseAuth
 
 class SignInViewController: UIViewController {
     
@@ -74,7 +75,39 @@ class SignInViewController: UIViewController {
     }
 
     @IBAction func signinButtonTapped(_ sender: Any) {
-        
+        guard let password = passwordTextField.text else {
+            presentErrorAlert(title: "Password Required", message: "Please enter a password to continue.")
+            return
+        }
+        guard let email = emailTextField.text else {
+            presentErrorAlert(title: "Email Required", message: "Please enter an email to continue.")
+            return
+        }
+        showLoadingView()
+        Auth.auth().signIn(withEmail: email, password: password) { _, error in
+            self.removeLoadingView()
+            if let error = error {
+                print(error.localizedDescription)
+                var errorMessage = "Something went wrong. Please try again later."
+                if let authError = AuthErrorCode(rawValue: error._code) {
+                    switch authError {
+                    case.invalidEmail:
+                        errorMessage = "Invalid email."
+                    case .userNotFound:
+                        errorMessage = "Email/Password does not match any records."
+                    default:
+                        break
+                    }
+                }
+                self.presentErrorAlert(title: "Create Account Failed", message: errorMessage)
+                return
+            }
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
+            let navVC = UINavigationController(rootViewController: homeVC)
+            let window = UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? [] }.first { $0.isKeyWindow }
+            window?.rootViewController = navVC
+        }
     }
 
 }

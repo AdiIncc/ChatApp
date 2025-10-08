@@ -85,7 +85,7 @@ class CreateAccountViewController: UIViewController {
             presentErrorAlert(title: "Username Invalid", message: "Please enter a username between 1 and 15 characters long.")
             return
         }
-        guard let passwork = passwordTextField.text else {
+        guard let password = passwordTextField.text else {
             presentErrorAlert(title: "Password Required", message: "Please enter a password to continue.")
             return
         }
@@ -102,7 +102,7 @@ class CreateAccountViewController: UIViewController {
                 return
             }
             
-            Auth.auth().createUser(withEmail: email, password: passwork) { result, error in
+            Auth.auth().createUser(withEmail: email, password: password) { result, error in
                 self.removeLoadingView()
                 if let error = error {
                     print(error.localizedDescription)
