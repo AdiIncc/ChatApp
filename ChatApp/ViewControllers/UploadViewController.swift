@@ -8,22 +8,26 @@
 import UIKit
 
 class UploadViewController: UIViewController {
-
+    
+    @IBOutlet weak var uploadAvatarLabel: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        uploadAvatarLabel.textColor = .white
+        uploadAvatarLabel.font = Font.body
+        cancelButton.setTitleColor(.white, for: .normal)
+        cancelButton.titleLabel?.font = Font.body
+        progressView.tintColor = UIColor.white
+        progressView.trackTintColor = UIColor.lightGray
+        view.backgroundColor = UIColor.white.withAlphaComponent(0)
+        let blurEffect = UIBlurEffect(style: .dark)
+        let visualEffectView = UIVisualEffectView(effect: blurEffect)
+        visualEffectView.frame = view.bounds
+        view.addSubview(visualEffectView)
+        view.sendSubviewToBack(visualEffectView)
+        progressView.setProgress(0, animated: false)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

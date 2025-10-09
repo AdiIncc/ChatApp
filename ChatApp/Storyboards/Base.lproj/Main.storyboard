@@ -158,11 +158,57 @@
                         <outlet property="avatarImageView" destination="Qkx-sI-Vwa" id="Z1V-6A-flL"/>
                         <outlet property="containerView" destination="TC3-WJ-whD" id="0fV-wg-S8m"/>
                         <outlet property="usernameLabel" destination="CKd-3K-D0f" id="F9b-YO-kWE"/>
+                        <segue destination="exK-Xk-qIL" kind="presentation" identifier="UploadSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="cug-qQ-KzY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoT-D5-K5r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1901.5267175572519" y="3.5211267605633805"/>
+        </scene>
+        <!--Upload View Controller-->
+        <scene sceneID="Owh-eU-jto">
+            <objects>
+                <viewController id="exK-Xk-qIL" customClass="UploadViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H5W-Gc-q0Q">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8Ib-Mb-AM8">
+                                <rect key="frame" x="25" y="424" width="343" height="4"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading avatar..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENc-iZ-bdn">
+                                <rect key="frame" x="125.66666666666669" y="373" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhB-Ws-Tce">
+                                <rect key="frame" x="172.66666666666666" y="458" width="48" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Cancel"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sjG-Sy-Z6b"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8Ib-Mb-AM8" firstAttribute="top" secondItem="ENc-iZ-bdn" secondAttribute="bottom" constant="30" id="8tY-up-p4C"/>
+                            <constraint firstItem="sjG-Sy-Z6b" firstAttribute="trailing" secondItem="8Ib-Mb-AM8" secondAttribute="trailing" constant="25" id="BTh-RX-WVe"/>
+                            <constraint firstItem="8Ib-Mb-AM8" firstAttribute="centerY" secondItem="H5W-Gc-q0Q" secondAttribute="centerY" id="MXw-g3-XlI"/>
+                            <constraint firstItem="LhB-Ws-Tce" firstAttribute="top" secondItem="8Ib-Mb-AM8" secondAttribute="bottom" constant="30" id="crd-Mh-Xpp"/>
+                            <constraint firstItem="8Ib-Mb-AM8" firstAttribute="leading" secondItem="sjG-Sy-Z6b" secondAttribute="leading" constant="25" id="hta-sN-gfQ"/>
+                            <constraint firstItem="LhB-Ws-Tce" firstAttribute="centerX" secondItem="H5W-Gc-q0Q" secondAttribute="centerX" id="pMA-sc-fuB"/>
+                            <constraint firstItem="ENc-iZ-bdn" firstAttribute="centerX" secondItem="H5W-Gc-q0Q" secondAttribute="centerX" id="zjC-Q2-XZQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="LhB-Ws-Tce" id="06g-eX-orf"/>
+                        <outlet property="progressView" destination="8Ib-Mb-AM8" id="4T5-tZ-j6d"/>
+                        <outlet property="uploadAvatarLabel" destination="ENc-iZ-bdn" id="YKe-go-wFu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iVj-BH-xEh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2680" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Ps-Qt-YHo">
